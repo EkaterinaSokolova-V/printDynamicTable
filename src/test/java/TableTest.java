@@ -6,24 +6,38 @@ import java.util.List;
 
 public class TableTest extends BaseTest {
 
-    @Test
-    public void printGoogleTable() {
-        WebPage googlePage = new WebPage(getDriver());
+//    @Test
+//    public void printGoogleTable() {
+//        WebPage googlePage = new WebPage(getDriver());
 //        List<List<String>> table = googlePage.getRows();
-        List<String> table = googlePage.getTable();
-        System.out.println(table);
+////        List<String> table = googlePage.getTable();
+//        System.out.println(table);
+//
+//        for (int i = 0; i < table.size(); i++) {
+//            int ind = table.get(i).lastIndexOf("\n");
+//
+////            String[] row = table.get(i).substring(0, ind).split("\n");
+//
+//            for (int j = 0; j < row.length; j++) {
+//                String s = String.format("%-32s", row[j]);
+//                System.out.print(s);
+//            }
+//            System.out.println();
+//        }
+//    }
 
-        for (int i = 0; i < table.size(); i++) {
-            int ind = table.get(i).lastIndexOf("\n");
+    @Test
+    public void printDemoWebTables() {
+        var webTable = new WebPage(getDriver());
+        var table = webTable.getRows();
 
-            String[] row = table.get(i).substring(0, ind).split("\n");
-
-            for (int j = 0; j < row.length; j++) {
-                String s = String.format("%-32s", row[j]);
-                System.out.print(s);
+        for (List<String> row : table) {
+            StringBuilder builder = new StringBuilder();
+            for (String value : row) {
+                builder.append(value).append(" ");
             }
+            System.out.println(builder);
             System.out.println();
         }
     }
-
 }
