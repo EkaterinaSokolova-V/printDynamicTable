@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 
 public class WebPage extends BasePage {
 
-    @FindBy(css = "section[aria-labelledby='smart-watchlist-title'] .sbnBtf li")
-//    @FindBy(css = ".rt-table .rt-tr-group > .rt-tr:not(.-padRow)")
+//    @FindBy(css = "section[aria-labelledby='smart-watchlist-title'] .sbnBtf li")
+    @FindBy(css = ".rt-table .rt-tr-group > .rt-tr:not(.-padRow)")
     private List<WebElement> listAllRows;
 
     public WebPage(WebDriver driver) {
@@ -24,10 +24,10 @@ public class WebPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-//    public List<List<String>> getRows() {
-//        return listAllRows.stream().map(row -> row.findElement(By.className("rt-td")))
-//                .map(list -> list.stream().map(WebElement::getText)
-//                        .collect(Collectors.toList()))
-//                .collect(Collectors.toList());
-//    }
+    public List<List<String>> getRows() {
+        return listAllRows.stream().map(row -> row.findElements(By.className("rt-td")))
+                .map(list -> list.stream().map(WebElement::getText)
+                        .collect(Collectors.toList()))
+                .collect(Collectors.toList());
+    }
 }
