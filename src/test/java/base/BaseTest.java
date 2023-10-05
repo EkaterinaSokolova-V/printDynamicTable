@@ -14,7 +14,7 @@ public abstract class BaseTest {
     }
 
     protected void navigateWeb() {
-//        driver.get("https://demoqa.com");
+//        driver.get("https://demoqa.com/webtables");
         driver.get("https://www.google.com/finance/?hl=en");
     }
 

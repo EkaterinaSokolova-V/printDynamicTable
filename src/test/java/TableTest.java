@@ -9,7 +9,7 @@ public class TableTest extends BaseTest {
     @Test
     public void printGoogleTable() {
         WebPage googlePage = new WebPage(getDriver());
-//        List<List<String>> table = googlePage.getRows();
+//        List<List<String>> table = WebPage.getRows();
         List<String> table = googlePage.getTable();
         System.out.println(table);
 
